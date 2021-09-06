@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+body {
+    margin: 60px;
+}
+
+h1 {
+    font-family: 'Lobster', cursive;
+    font-size: xx-large;
+    text-align: center;
+    text-shadow:0 0 10px  #f59818, 0 0 5px #e632a1; 
+}
+
+h2 {
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+}
+
+h3 {
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+}
+
+h4 {
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+}
+
+p {
+    font-family: 'Nunito', sans-serif;
+}
+
+#x {
+    position: relative;
+} 
+
+.topnav {
+    overflow: hidden;
+    background-color: #862aa3;
+    position: relative;
+}
+  
+.nav a {
+    float: left;
+    color: #000;
+    text-align: center;
+    font-size: 15px;
+    font-family: 'DM Sans', sans-serif;
+    padding: 10px;
+    border: 3px #000;
+}
+  
+.nav a:hover {
+    background-color: #f59818;
+}
+
+#wns{
+    float: right;
+}
+
+.names {
+    /* grid-template-areas: "left-1 main-2 right-3"; */
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.logo {
+    border-radius: 40%;
+    max-width: 70px;
+    height: auto;  
+}
+
+.logos {
+    display: flex;
+    justify-content: space-evenly;
+    position: bottom;
+    width: 100%;
+    height: 80px;
+}
+
+#pic {
+  display: flex;
+  float:right;
+  border-radius: 75%;
+}
+
+#bio {
+  display: flex;
+}
+
+
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.loginpic {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
