@@ -1,5 +1,5 @@
 import express from 'express';
-import { peopleData } from './fixtures/people.js';
+import peopleRouter from './routes/people.js'
 
 
 const app = express();
@@ -12,23 +12,8 @@ app.listen(3000, () => {
     console.log('server started!')
 });
 
-app.get('/', (req,res) => {
-    // res.send('Hello, World!')
-    console.log(peopleData);
-    res.render('index', { people: peopleData});
-});
+app.use('/', peopleRouter)
 
-app.get('/profile/:id', (req, res) => {
-    let personId = req.params.id;
-    let person;
-    peopleData.forEach((personData) => {
-        if (personData.id == personId) {
-            person = personData;
-        }
-    })
-    console.log(person);
-    res.render('profile', { person: person});
-})
 
 app.get('/', (req,res) => {
     console.log(usersData);
