@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
 body {
-    margin: 60px;
+    margin: 25px;
 }
 
 h1 {
@@ -32,7 +32,13 @@ p {
 }
 
 #x {
-    position: relative;
+  object-fit: cover;
+  height: auto;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;;
+
 } 
 
 .topnav {
@@ -82,14 +88,19 @@ p {
     height: 80px;
 }
 
+#profilepic {
+  float: right;
+  padding: 15px;
+}
+
 #pic {
-  display: flex;
   float:right;
   border-radius: 75%;
 }
 
 #bio {
   display: flex;
+  padding: 15px;
 }
 
 
