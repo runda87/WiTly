@@ -30,19 +30,24 @@ app.get('/login/:id', (req, res) => {
     })
     console.log(users);
     res.render('login', { users: users});
-})
-
-app.get('/loginform', function(req, res, next) { 
-    res.render('login', { title: 'Login Page', message }); 
- }); 
-
- app.get('/userprofile',  function(req, res, next) {
-    res.render('profile', { title: 'Profile Page', user : req.user,
-    avatar: gravatar.url(req.user.email ,  {s: '100', r: 'x', d:
-     'retro'}, true) });
 });
 
-app.get('/signup', function(req,res, next) {
-    res.render('signup', { titile: 'Sign up', });
+// app.get('/loginform', (req, res) { 
+//     res.render('login', { title: 'Login Page', message }); 
+//  }); 
+
+//  app.get('/userprofile',  (req, res,) {
+//     res.render('profile', { title: 'Profile Page', user : req.user,
+//     avatar: gravatar.url(req.user.email ,  {s: '100', r: 'x', d:
+//      'retro'}, true) });
+// });
+
+app.get('/signup', (req, res) => {
+    res.render('signup');
 });
 
+app.get('/loginform', (req, res) => {
+    res.render('loginform');
+});
+
+// titile: 'Sign up', 

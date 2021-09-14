@@ -14,12 +14,16 @@
             <br>
             <br>
         </div>
-
+        <div id="pic-container">
           <% people.forEach(person => { %>
-            <a href="/profile/<%= person.id %>">
+            <div id= "profile-container">
+              <a href="/profile/<%= person.id %>">
+              <img id="pic" src=<%= person.photo %>
                 <p class="names"><%= person.name %></p>
+            </div>
             </a>
             <% }) %>
+        </div>
     </body>
     <%- include("../partials/_footer") -%>
 </html>
