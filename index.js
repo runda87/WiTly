@@ -32,16 +32,6 @@ app.get('/login/:id', (req, res) => {
     res.render('login', { users: users});
 });
 
-// app.get('/loginform', (req, res) { 
-//     res.render('login', { title: 'Login Page', message }); 
-//  }); 
-
-//  app.get('/userprofile',  (req, res,) {
-//     res.render('profile', { title: 'Profile Page', user : req.user,
-//     avatar: gravatar.url(req.user.email ,  {s: '100', r: 'x', d:
-//      'retro'}, true) });
-// });
-
 app.get('/signup', (req, res) => {
     res.render('signup');
 });
@@ -49,5 +39,4 @@ app.get('/signup', (req, res) => {
 app.get('/loginform', (req, res) => {
     res.render('loginform');
 });
-
-// titile: 'Sign up', 
+ 
