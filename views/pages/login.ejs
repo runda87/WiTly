@@ -1,0 +1,28 @@
+<%- include("../partials/_head") -%>
+
+<h1>Login Form</h1>
+
+<form action="/login" method="POST">
+  <div>
+    <label>Username:</label>
+    <input type="text" name="username" />
+  </div>
+  <div>
+    <label>Password:</label>
+    <input type="password" name="password" />
+  </div>
+  <div>
+    <input type="submit" value="Login" />
+  </div>
+    <button type="button" class="cancelbtn">Cancel</button>
+    <span>Forgot <a href="#">password?</a></span>
+    <br> 
+    <div>
+    <p>Don't have an account? <a href="/signup">Signup</a>,it's free.</p> 
+    </div>
+  </div>
+</form>
+
+</body>
+<%- include("../partials/_footer") -%>
+</html>

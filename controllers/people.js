@@ -5,27 +5,52 @@ import { fetchPerson , fetchPeople, createPerson } from "../api/people.js";
 
 export const fetchPeopleController = async function (req, res) {
     const name = req.query.name;
-    console.log(req.query);
+    let user;
+    if (req.isAuthenticated()) {
+        user = {
+            id: req.user.rows[0].id,
+            username: req.user.rows[0].username,
+    };
+    } else {
+        user = null;
+    }
     const peopleData = await fetchPeople(name);
     if (peopleData) {
-        res.render('index', {people: peopleData})
+        res.render('index', {people: peopleData,
+        user: user,
+    });
     } else {
-        res.send("Not Authorised")
+        res.send("Not Authorised");
     }
-    
 }
-
 
 export const fetchPersonController = async function (req,res) {
     const personId = req.params.id;
     const personData = await fetchPerson(personId);
-    console.log(personId);
-    console.log(personData);
-    res.render('profile', { person: personData })
+    let user;
+    if (req.isAuthenticated()) {
+        user = {
+            id: req.user.rows[0].id,
+            username: req.user.rows[0].username,
+    };
+    } else {
+        user = null;
+    }
+    // console.log(personId);
+    // console.log(personData);
+    res.render('profile', { person: personData, user })
 }
 
 export const createPersonFormController = function (req, res){
-    res.render('newProfile');
+    if (req.isAuthenticated()) {
+        user = {
+            id: req.user.rows[0].id,
+            username: req.user.rows[0].username,
+    };
+    } else {
+        user = null;
+    }
+    res.render('newProfile', { user });
 }
 
 export const createPersonController = async function (req, res) {
@@ -36,7 +61,16 @@ export const createPersonController = async function (req, res) {
     form.append('bio', personData.bio);
     const fileStream = fs.createReadStream(req.file.path);
     form.append('photo', fileStream, req.file.originalname);
-
+    let user;
+    if (req.isAuthenticated()) {
+        user = {
+            id: req.user.rows[0].id,
+            username: req.user.rows[0].username,
+    };
+    } else {
+        user = null;
+    }
+    
     let newPerson;
     try {
           newPerson = await createPerson(form);
@@ -44,7 +78,7 @@ export const createPersonController = async function (req, res) {
           console.log(err);
     }
     if (newPerson) {
-          res.render('profile', { person: newPerson });
+          res.render('profile', { person: newPerson, user });
     } else {
           res.send('Error.');
     }

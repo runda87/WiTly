@@ -10,7 +10,7 @@ const API_KEY = process.env.API_KEY;
 export const fetchPeople = async function (name) {
     const query = `?name=${name}`;
     const url = `${API_URL}people${name ? query : ''}`;
-    console.log(url);
+    // console.log(url);
     const response = await fetch(url, {
         headers: {
             Authorization: `Token ${API_KEY}`
@@ -25,7 +25,7 @@ export const fetchPeople = async function (name) {
 export const fetchPerson = function (personId) { 
     // const query = `?id=${personId}`;
     const url = `${API_URL}people/${personId}`;
-    console.log(url);
+    // console.log(url);
     return fetch(url, {
         headers: {
             Authorization: `Token ${API_KEY}`
@@ -36,7 +36,7 @@ export const fetchPerson = function (personId) {
         }
         return res.json();
     }).then(function(res){
-        console.log(res);
+        // console.log(res);
         return res; 
     }).catch();
 }

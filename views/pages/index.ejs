@@ -1,29 +1,29 @@
 <%- include("../partials/_head") -%>
-
-        <form id="search-form" action="/" method="GET">
-        <input name="name" id="name-query" type="text" />
-        <input type="submit" value="Search" />
-      </form>
-        <div>
-            <br>
-            <br>
-          <h2>“Always remember you are braver than you believe, 
-              stronger than you seem, 
-              smarter than you think and twice as beautiful as you’ve ever imagined.”</h2>
-            <h4>– Dr. Seuss</h4>
-            <br>
-            <br>
-        </div>
-        <div id="pic-container">
-          <% people.forEach(person => { %>
-            <div id= "profile-container">
-              <a href="/profile/<%= person.id %>">
-              <img id="pic" src=<%= person.photo %>
-                <p class="names"><%= person.name %></p>
-            </div>
-            </a>
-            <% }) %>
-        </div>
-    </body>
+<br>
+<% if (user !== null) { %>
+<p> You are logged in as <%= user.username %></p>
+<% } %>
+<br>
+  <div>
+      <br>
+      <br>
+    <h2>“Always remember you are braver than you believe, <br>
+        Stronger than you seem, <br>
+        Smarter than you think and twice as beautiful as you’ve ever imagined.”</h2>
+      <h4>– Dr. Seuss</h4>
+      <br>
+      <br>
+  </div>
+  <div id="pic-container">
+    <% people.forEach(person => { %>
+      <div id= "profile-container">
+        <a href="/profile/<%= person.id %>">
+        <img id="pic" src=<%= person.photo %>
+          <p class="names"><%= person.name %></p>
+      </div>
+      </a>
+      <% }) %>
+  </div>
+</body>
     <%- include("../partials/_footer") -%>
 </html>
