@@ -21,14 +21,14 @@
     <br>
     <nav>
             <div class="nav">
+                  <% if (user !== null) { %>
                         <a href="/">Home</a>
-                        <a href="/create-account">Create New Account</a>
-                        <a href="/login">Login</a>
-                  <% if  (user !== null) { %>
-                        <a href="/">Home</a>
-                        <a href="">Update profile</a>
-                        <a href="/profile">Create New profile</a>
+                        <a href="/profile">Create / Edit profile</a>
                         <a href="/logout">Logout</a>
+                  <% } else { %>
+                  <a href="/">Home</a>
+                  <a href="/create-account">Create New Account</a>
+                  <a href="/login">Login</a>
                   <% } %>
                   <form id="search-form" action="/" method="GET">
                         <input name="name" id="name-query" type="text" />

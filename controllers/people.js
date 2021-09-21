@@ -16,9 +16,7 @@ export const fetchPeopleController = async function (req, res) {
     }
     const peopleData = await fetchPeople(name);
     if (peopleData) {
-        res.render('index', {people: peopleData,
-        user: user,
-    });
+        res.render('index', {people: peopleData, user: user});
     } else {
         res.send("Not Authorised");
     }
@@ -42,6 +40,9 @@ export const fetchPersonController = async function (req,res) {
 }
 
 export const createPersonFormController = function (req, res){
+    console.log(req.isAuthenticated())
+    console.log(req.user)
+    let user;
     if (req.isAuthenticated()) {
         user = {
             id: req.user.rows[0].id,
@@ -50,7 +51,7 @@ export const createPersonFormController = function (req, res){
     } else {
         user = null;
     }
-    res.render('newProfile', { user });
+    res.render('newProfile', { user: user });
 }
 
 export const createPersonController = async function (req, res) {
