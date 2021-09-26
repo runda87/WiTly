@@ -3,12 +3,36 @@
         <div id="profilepic">
             <img id="pic" src=<%= person.photo %>
         </div>
-        <br>
-        <h1><%= person.name %></h1>
-        <br>
-        <h3><%= person.tagline %></h3>
-        <br>
-        <p id="bio"><%= person.bio %></p>
+        <div>
+            <h1><%= person.name %></h1>
+        </div>
+        <div>
+            <h3><%= person.tagline %></h3>
+        </div>
+        <div>
+            <p id="bio"><%= person.bio %></p>
+        </div>
+    </div>
+    <div></div>
+    <div>
+        <details>
+            <summary>
+                <button type="button" class="btn" onclick="open">Edit / Update Profile</button>
+            </summary>
+                <form action="/profile/<%= person.id %>" method="POST" enctype="multipart/form-data">
+                    <label>Name</label>
+                    <input name="name" value="<%= person.name %>" type="text" />
+                    <label>Tagline</label>
+                    <input name="tagline" value="<%= person.tagline %>" type="text" />
+                    <label>Bio</label>
+                    <textarea class="bio" name="bio"><%= person.bio %></textarea>
+                    <label>Photo / Image</label>
+                    <input name="photo" type="file" />
+                    <br>
+                    <input type="submit"  onclick="updateProfile "<%= person.id %>"" value="Update" />
+                </form>
+                <button type="button" class="btn">Delete Profile</button>
+        </details>
     </div>
     </body>
     <%- include("../partials/_footer") -%>

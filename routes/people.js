@@ -1,10 +1,12 @@
 import express from 'express';
 import multer from 'multer';
+import { removePerson } from '../api/people.js';
 import {
     createPersonFormController,
     createPersonController,
     fetchPeopleController,
-    fetchPersonController
+    fetchPersonController,
+    updatePersonController,
 } from '../controllers/people.js'
 
 const router = express.Router();
@@ -24,5 +26,7 @@ router.get('/', fetchPeopleController)
 router.get('/profile', createPersonFormController)
 router.post('/profile', upload.single('photo'), createPersonController)
 router.get('/profile/:id', fetchPersonController)
+router.post('/profile/:id', updatePersonController)
+router.delete('/profile/:id')
 
 export default router;

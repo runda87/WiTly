@@ -1,12 +1,22 @@
 <%- include("../partials/_head") -%>
 
-<h1>Create / Edit profile</h1>
+<h1>Create Profile</h1>
 
 <form action="/profile" method="POST" enctype="multipart/form-data">
-    <input name="name" type="text" />
-    <input name="tagline" type="text" />
-    <textarea name="bio"></textarea>
+    <label>Name</label>
+    <input name="name" placeholder="Enter your name" type="text" />
+    <br>
+    <label>Tagline</label>
+    <input name="tagline" placeholder="Enter a tag line" type="text" />
+    <br>
+    <label>Bio</label>
+    <br>
+    <textarea name="bio" class="bio" placeholder="Tell us how you got here !"></textarea>
+    <br>
+    <label>Photo / Image</label>
+    <br>
     <input name="photo" type="file" />
+    <br>
     <input type="submit" value="Create" />
 </form>
 
